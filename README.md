@@ -1,8 +1,10 @@
-# Fuji - Modern Note Taking Application
+<img width="1865" height="953" alt="image" src="https://github.com/user-attachments/assets/e8332950-b48b-4b35-a2a6-4df528742f9e" /># Fuji - Modern Note Taking Application
 
 <div align="center">
 <h3>A sleek and modern note-taking application built with Laravel, Livewire, and TailwindCSS.</h3>
 </div>
+
+[Check Fuji](https://fuji.laravel.cloud/)
 
 ## ✨ Features
 
