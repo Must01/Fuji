@@ -3,11 +3,13 @@
         <div class="flex gap-2">
             <flux:button size="sm" @class([
                 'ring-1 ring-accent' => $selectedTag == 'all',
+                'cursor-pointer',
             ]) wire:key="all" wire:click="selectThisTag('all')">All
             </flux:button>
             @foreach ($tags as $tag)
                 <flux:button size="sm" @class([
                     'ring-1 ring-accent' => $selectedTag == $tag,
+                    'cursor-pointer',
                 ]) wire:key="{{ $tag }}"
                     wire:click="selectThisTag('{{ $tag }}')">
                     {{ $tag }}
