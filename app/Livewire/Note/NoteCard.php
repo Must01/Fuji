@@ -2,12 +2,12 @@
 
 namespace App\Livewire\Note;
 
+use App\Models\Note;
 use Livewire\Component;
 
 class NoteCard extends Component
 {
-
-    public $note;
+    public Note $note;
 
     public function render()
     {

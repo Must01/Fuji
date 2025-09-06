@@ -1,39 +1,113 @@
 @import "tailwindcss";
 @import "../../vendor/livewire/flux/dist/flux.css";
+
+/* Sources (scanning for class usage) */
 @source "../views";
 @source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
 @source '../../vendor/livewire/flux-pro/stubs/**/*.blade.php';
 @source '../../vendor/livewire/flux/stubs/**/*.blade.php';
+@source "./resources/views/**/*.blade.php";
+@source "./vendor/wire-elements/modal/resources/views/*.blade.php";
+@source "./storage/framework/views/*.php";
 
+/* Dark mode */
 @custom-variant dark (&:where(.dark, .dark *));
 
+/* Inline safelist (forces Tailwind to always generate these classes) */
+@source inline("max-w-sm max-w-md max-w-lg max-w-xl max-w-2xl max-w-3xl max-w-4xl max-w-5xl max-w-6xl max-w-7xl sm:max-w-sm sm:max-w-md sm:max-w-lg sm:max-w-xl sm:max-w-2xl md:max-w-sm md:max-w-md md:max-w-lg md:max-w-xl md:max-w-2xl lg:max-w-sm lg:max-w-md lg:max-w-lg lg:max-w-xl lg:max-w-2xl xl:max-w-sm xl:max-w-md xl:max-w-lg xl:max-w-xl xl:max-w-2xl 2xl:max-w-sm 2xl:max-w-md 2xl:max-w-lg z-30 2xl:max-w-xl 2xl:max-w-2xl");
+
+/* Custom utilities */
+@layer utilities {
+    .bg-zinc {
+        @apply bg-zinc-400 text-zinc-800 dark:bg-zinc-800 dark:text-white;
+    }
+
+    /* Reds / Oranges */
+    .bg-red {
+        @apply bg-red-500 text-white dark:bg-red-500 dark:text-white;
+    }
+    .bg-orange {
+        @apply bg-orange-500 text-white dark:bg-orange-400 dark:text-orange-950;
+    }
+    .bg-amber {
+        @apply bg-amber-400 text-amber-950 dark:bg-amber-400 dark:text-amber-950;
+    }
+    .bg-yellow {
+        @apply bg-yellow-400 text-yellow-950 dark:bg-yellow-400 dark:text-yellow-950;
+    }
+
+    /* Greens */
+    .bg-lime {
+        @apply bg-lime-400 text-lime-900 dark:bg-lime-400 dark:text-lime-950;
+    }
+    .bg-green {
+        @apply bg-green-600 text-white dark:bg-green-600 dark:text-white;
+    }
+    .bg-emerald {
+        @apply bg-emerald-600 text-white dark:bg-emerald-600 dark:text-white;
+    }
+    .bg-teal {
+        @apply bg-teal-600 text-white dark:bg-teal-600 dark:text-white;
+    }
+
+    /* Blues */
+    .bg-cyan {
+        @apply bg-cyan-600 text-white dark:bg-cyan-600 dark:text-white;
+    }
+    .bg-sky {
+        @apply bg-sky-600 text-white dark:bg-sky-600 dark:text-white;
+    }
+    .bg-blue {
+        @apply bg-blue-500 text-white dark:bg-blue-500 dark:text-white;
+    }
+    .bg-indigo {
+        @apply bg-indigo-500 text-white dark:bg-indigo-500 dark:text-white;
+    }
+
+    /* Purples / Pinks */
+    .bg-violet {
+        @apply bg-violet-500 text-white dark:bg-violet-500 dark:text-white;
+    }
+    .bg-purple {
+        @apply bg-purple-500 text-white dark:bg-purple-500 dark:text-white;
+    }
+    .bg-fuchsia {
+        @apply bg-fuchsia-600 text-white dark:bg-fuchsia-600 dark:text-white;
+    }
+    .bg-pink {
+        @apply bg-pink-600 text-white dark:bg-pink-600 dark:text-white;
+    }
+    .bg-rose {
+        @apply bg-rose-500 text-white dark:bg-rose-500 dark:text-white;
+    }
+}
+
+/* Theme overrides */
 @theme {
-    --font-sans: "Instrument Sans", ui-sans-serif, system-ui, sans-serif,
-        "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
-        "Noto Color Emoji";
+    --color-zinc-50: var(--color-neutral-50);
+    --color-zinc-100: var(--color-neutral-100);
+    --color-zinc-200: var(--color-neutral-200);
+    --color-zinc-300: var(--color-neutral-300);
+    --color-zinc-400: var(--color-neutral-400);
+    --color-zinc-500: var(--color-neutral-500);
+    --color-zinc-600: var(--color-neutral-600);
+    --color-zinc-700: var(--color-neutral-700);
+    --color-zinc-800: var(--color-neutral-800);
+    --color-zinc-900: var(--color-neutral-900);
+    --color-zinc-950: var(--color-neutral-950);
+}
 
-    --color-zinc-50: #fafafa;
-    --color-zinc-100: #f5f5f5;
-    --color-zinc-200: #e5e5e5;
-    --color-zinc-300: #d4d4d4;
-    --color-zinc-400: #a3a3a3;
-    --color-zinc-500: #737373;
-    --color-zinc-600: #525252;
-    --color-zinc-700: #404040;
-    --color-zinc-800: #262626;
-    --color-zinc-900: #171717;
-    --color-zinc-950: #0a0a0a;
-
-    --color-accent: var(--color-neutral-800);
-    --color-accent-content: var(--color-neutral-800);
+@theme {
+    --color-accent: var(--color-orange-500);
+    --color-accent-content: var(--color-orange-600);
     --color-accent-foreground: var(--color-white);
 }
 
 @layer theme {
     .dark {
-        --color-accent: var(--color-white);
-        --color-accent-content: var(--color-white);
-        --color-accent-foreground: var(--color-neutral-800);
+        --color-accent: var(--color-orange-400);
+        --color-accent-content: var(--color-orange-400);
+        --color-accent-foreground: var(--color-orange-950);
     }
 }
 
@@ -60,7 +134,3 @@ textarea:focus[data-flux-control],
 select:focus[data-flux-control] {
     @apply outline-hidden ring-2 ring-accent ring-offset-2 ring-offset-accent-foreground;
 }
-
-/* \[:where(&)\]:size-4 {
-    @apply size-4;
-} */

@@ -6,7 +6,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Str;
-use Laravel\Prompts\Note;
+use App\Models\Note;
 use MongoDB\Laravel\Auth\User as Authenticatable;
 
 class User extends Authenticatable
@@ -65,6 +65,6 @@ class User extends Authenticatable
 
     public function notes()
     {
-        $this->hasMany(Note::class);
+        return $this->hasMany(Note::class);
     }
 }

@@ -10,18 +10,19 @@ class Note extends Authenticatable
     protected $table = "notes";
 
     protected $fillable = [
+        'user_id',
         'name',
         'note',
         'color',
-        'tag'
+        'tags'
     ];
 
     protected $casts = [
-        'tag'
+        'tags'
     ];
 
     public function user()
     {
-        $this->belongsTo(User::class);
+        return $this->belongsTo(User::class);
     }
 }

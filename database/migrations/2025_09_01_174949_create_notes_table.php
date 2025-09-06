@@ -12,6 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::connection('mongodb')->create('notes', function (Blueprint $connection) {
+            $connection->index('user_id');
             $connection->index('name');
             $connection->index('note');
             $connection->index('color');

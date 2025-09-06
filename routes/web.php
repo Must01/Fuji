@@ -1,6 +1,7 @@
 <?php
 
-use App\Livewire\Note\Create;
+use App\Livewire\Note\Form;
+use App\Livewire\Note\Index;
 use App\Livewire\Settings\Appearance;
 use App\Livewire\Settings\Password;
 use App\Livewire\Settings\Profile;
@@ -10,11 +11,9 @@ Route::get('/', function () {
     return view('welcome');
 })->name('home');
 
-Route::view('mynotes', 'mynotes')
+Route::get('notes', Index::class)
     ->middleware(['auth', 'verified'])
     ->name('note.index');
-
-Route::get('create', Create::class)->middleware(['auth', 'verified'])->name('note.create');
 
 Route::middleware(['auth'])->group(function () {
     Route::redirect('settings', 'settings/profile');
