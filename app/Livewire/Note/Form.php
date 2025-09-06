@@ -100,15 +100,16 @@ class Form extends ModalComponent
         // create or update based on the oldnote existence 
         if (isset($this->oldnote)) {
             $this->oldnote->update($data);
-            session()->flash('message', 'Note updated successfully!');
+            $this->dispatch('notify', type: 'info', message: 'Note updated.');
         } else {
-            Note::create($data);  // Fixed the typo here
-            session()->flash('message', 'Note created successfully!');
+            Note::create($data);
+            $this->dispatch('notify', type: 'success', message: 'Note created.');
         }
 
         // redirect (keep your original redirect logic)
         $this->closeModal();
-        $this->redirect('/notes', true);
+
+        return $this->redirect('/notes', true);
     }
 
     public function render()

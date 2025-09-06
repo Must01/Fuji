@@ -5,8 +5,36 @@
         @include('partials.head')
     </head>
 
+
+
     <body class="min-h-screen bg-white dark:bg-zinc-800">
-        <flux:sidebar sticky stashable class="border-e border-zinc-200 bg-zinc-50 dark:border-zinc-700 dark:bg-zinc-900">
+        <div x-data="{ show: false, message: '', type: 'info' }"
+            x-on:notify.window="
+        show = true;
+        message = $event.detail.message;
+        type = $event.detail.type;
+        setTimeout(() => show = false, 3000);
+    "
+            x-show="show" x-transition class="fixed bottom-6 right-6 z-50">
+            <div class="flex items-center gap-3 rounded-xl border px-4 py-3 shadow-lg"
+                :class="{
+                    'bg-green-100 dark:bg-green-900 border-green-300 dark:border-green-700 text-green-800 dark:text-green-200': type === 'success',
+                    'bg-blue-100 dark:bg-blue-900 border-blue-300 dark:border-blue-700 text-blue-800 dark:text-blue-200': type === 'info',
+                    'bg-red-100 dark:bg-red-900 border-red-300 dark:border-red-700 text-red-800 dark:text-red-200': type === 'error'
+                }">
+                <span class="flex-1 text-sm font-medium" x-text="message"></span>
+
+                <!-- Dismiss button -->
+                <flux:button icon="x-mark" @click="show = false" size="xs" variant="subtle"
+                    class="text-current hover:bg-black/5 dark:hover:bg-white/5">
+                </flux:button>
+            </div>
+        </div>
+
+
+
+        <flux:sidebar sticky stashable
+            class="border-e border-zinc-200 bg-zinc-50 dark:border-zinc-700 dark:bg-zinc-900">
             <flux:sidebar.toggle class="lg:hidden" icon="x-mark" />
 
             <a href="{{ route('home') }}" class="me-5 flex items-center space-x-2 rtl:space-x-reverse" wire:navigate>

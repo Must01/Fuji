@@ -11,7 +11,7 @@
         </flux:button>
     </div>
     <flux:separator variant="subtle" />
-    <flux:text class="ml-2 flex-1 hover:bg-white/5 dark:hover:bg-black/5">{{ str($note->note)->words(10) }}</flux:text>
+    <flux:text class="ml-2 flex flex-1 items-center justify-center">{{ str($note->note)->words(10) }}</flux:text>
     <div class="flex items-center justify-between">
         <div class="flex items-center gap-0.5 text-[10px] sm:text-xs">
             <flux:icon.clock variant="solid" class="size-3 sm:size-4" />
@@ -21,12 +21,12 @@
             <flux:button color="" class="cursor-pointer" :loading="true" size="xs" icon="eye"
                 wire:click="$dispatch('openModal', {{ \Illuminate\Support\Js::from(['component' => 'note.show', 'arguments' => ['note' => $note->id]]) }})">
             </flux:button>
-            <flux:modal.trigger name="delete-profile">
+            <flux:modal.trigger name="delete-{{ $note->id }}">
                 <flux:button variant="danger" :loading="true" icon="trash" size="xs"
                     class="cursor-pointer" />
             </flux:modal.trigger>
 
-            <flux:modal name="delete-profile" class="min-w-[22rem]">
+            <flux:modal name="delete-{{ $note->id }}" class="min-w-[22rem]">
                 <div class="space-y-6">
                     <div>
                         <flux:heading size="lg">Delete Note?</flux:heading>

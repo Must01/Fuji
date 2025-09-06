@@ -25,7 +25,8 @@ class Index extends Component
         }
 
         $note->delete();
-        session()->flash('message', 'Note deleted successfully!');
+
+        $this->dispatch('notify', type: 'error', message: 'Note deleted.');
     }
 
     // Listen for the noteSaved event from the Form component
