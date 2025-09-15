@@ -16,6 +16,7 @@ return new class extends Migration
             $connection->index('name');
             $connection->index('note');
             $connection->index('color');
+            $connection->index('custom_color');
             $connection->index('tag');
             $connection->timestamps();
         });

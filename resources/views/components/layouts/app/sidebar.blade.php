@@ -5,16 +5,15 @@
         @include('partials.head')
     </head>
 
-
-
     <body class="min-h-screen bg-white dark:bg-zinc-800">
+        {{-- Notification Toast --}}
         <div x-data="{ show: false, message: '', type: 'info' }"
             x-on:notify.window="
-        show = true;
-        message = $event.detail.message;
-        type = $event.detail.type;
-        setTimeout(() => show = false, 3000);
-    "
+            show = true;
+            message = $event.detail.message;
+            type = $event.detail.type;
+            setTimeout(() => show = false, 3000);
+        "
             x-show="show" x-transition class="fixed bottom-6 right-6 z-50">
             <div class="flex items-center gap-3 rounded-xl border px-4 py-3 shadow-lg"
                 :class="{
@@ -24,33 +23,37 @@
                 }">
                 <span class="flex-1 text-sm font-medium" x-text="message"></span>
 
-                <!-- Dismiss button -->
                 <flux:button icon="x-mark" @click="show = false" size="xs" variant="subtle"
                     class="text-current hover:bg-black/5 dark:hover:bg-white/5">
                 </flux:button>
             </div>
         </div>
 
+        {{-- Sidebar --}}
+        <flux:sidebar sticky stashable dismissible inset="left"
+            class="z-40 border-e border-zinc-200 bg-zinc-50 dark:border-zinc-700 dark:bg-zinc-900">
 
+            {{-- Mobile close button --}}
+            <flux:sidebar.toggle class="lg:hidden" icon="x-mark" inset="left" />
 
-        <flux:sidebar sticky stashable
-            class="border-e border-zinc-200 bg-zinc-50 dark:border-zinc-700 dark:bg-zinc-900">
-            <flux:sidebar.toggle class="lg:hidden" icon="x-mark" />
-
+            {{-- Logo --}}
             <a href="{{ route('home') }}" class="me-5 flex items-center space-x-2 rtl:space-x-reverse" wire:navigate>
                 <x-app-logo />
             </a>
 
+            {{-- Main nav --}}
             <flux:navlist variant="outline">
                 <flux:navlist.group :heading="__('Platform')" class="grid">
                     <flux:navlist.item icon="pencil-square" :href="route('note.index')"
-                        :current="request()->routeIs('note.index')" wire:navigate>Notes
+                        :current="request()->routeIs('note.index')" wire:navigate>
+                        Notes
                     </flux:navlist.item>
                 </flux:navlist.group>
             </flux:navlist>
 
             <flux:spacer />
 
+            {{-- Footer nav --}}
             <flux:navlist variant="outline">
                 <flux:navlist.item icon="folder-git-2" href="https://github.com/must01/fuji" target="_blank">
                     Source Code
@@ -61,7 +64,7 @@
                 </flux:navlist.item>
             </flux:navlist>
 
-            <!-- Desktop User Menu -->
+            {{-- Desktop User Menu --}}
             <flux:dropdown class="hidden lg:block" position="bottom" align="start">
                 <flux:profile :name="auth()->user()->name" :initials="auth()->user()->initials()"
                     icon:trailing="chevrons-up-down" />
@@ -76,7 +79,6 @@
                                         {{ auth()->user()->initials() }}
                                     </span>
                                 </span>
-
                                 <div class="grid flex-1 text-start text-sm leading-tight">
                                     <span class="truncate font-semibold">{{ auth()->user()->name }}</span>
                                     <span class="truncate text-xs">{{ auth()->user()->email }}</span>
@@ -105,7 +107,7 @@
             </flux:dropdown>
         </flux:sidebar>
 
-        <!-- Mobile User Menu -->
+        {{-- Mobile Header (hamburger + user menu) --}}
         <flux:header class="lg:hidden">
             <flux:sidebar.toggle class="lg:hidden" icon="bars-2" inset="left" />
 
@@ -124,7 +126,6 @@
                                         {{ auth()->user()->initials() }}
                                     </span>
                                 </span>
-
                                 <div class="grid flex-1 text-start text-sm leading-tight">
                                     <span class="truncate font-semibold">{{ auth()->user()->name }}</span>
                                     <span class="truncate text-xs">{{ auth()->user()->email }}</span>

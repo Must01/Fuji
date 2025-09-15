@@ -10,8 +10,12 @@
 
 ## ✨ Features
 
--   🎨 **Rich Color Themes**: Choose from 18 different color themes for your notes
+-   🎨 **Custom Color Picker**: Pick any custom color for your notes
+-   🌈 **Curated Themes**: 7 carefully selected color themes for quick styling
+-   📝 **Rich Text Editing**: Notes now support pure **HTML content**
+-   🔡 **Bold Formatting**: Built-in bold button to wrap selected text with `<b>` tags
 -   🏷️ **Tag Management**: Organize notes with custom tags
+-   🔍 **Search Functionality**: Search notes by name, content, or tags
 -   🌓 **Dark Mode Support**: Built-in dark mode for comfortable viewing
 -   📱 **Responsive Design**: Works seamlessly on both desktop and mobile devices
 -   🔐 **User Authentication**: Secure user authentication and note privacy
@@ -24,7 +28,7 @@
     -   Livewire for reactive components
     -   TailwindCSS for styling
     -   Flux UI components
--   **Database**: Mongodb (easily configurable to other databases)
+-   **Database**: MongoDB (easily configurable to other databases)
 -   **Authentication**: Built-in Laravel authentication
 
 ## 🚀 Getting Started
@@ -39,60 +43,62 @@
 
 1. Clone the repository
 
-```bash
+```
 git clone https://github.com/must01/fuji.git
 cd fuji
 ```
 
 2. Install PHP dependencies
 
-```bash
+```
 composer install
 ```
 
 3. Install NPM dependencies
 
-```bash
+```
 npm install
 ```
 
 4. Create environment file
 
-```bash
+```
 cp .env.example .env
 ```
 
 5. Generate application key
 
-```bash
+```
 php artisan key:generate
 ```
 
 6. Set up the database
 
-```bash
+```
 php artisan migrate
 ```
 
 7. Start the development server
 
-```bash
+```
 php artisan serve
 ```
 
 8. In a separate terminal, start the Vite development server
 
-```bash
+```
 npm run dev
 ```
 
 ## 🎯 Usage
 
 1. Register a new account or login to your existing account
-2. Create new notes with custom colors and tags
-3. View, edit, or delete your notes
-4. Filter notes by tags
-5. Toggle between light and dark mode
+2. Create new notes with **custom colors**, **themes**, and **tags**
+3. Format notes with **HTML content** and use the **bold button**
+4. View, edit, or delete your notes
+5. Filter notes by tags
+6. **Search notes** using the search bar by name, content, or tags
+7. Toggle between light and dark mode
 
 ## 🎨 Customization
 

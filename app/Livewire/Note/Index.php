@@ -11,6 +11,8 @@ class Index extends Component
 {
     public $selectedTag = 'all';
 
+    public $search = '';
+
     public function selectThisTag($tag)
     {
         $this->selectedTag = $tag;
@@ -38,18 +40,30 @@ class Index extends Component
 
     public function render()
     {
-        // Step 1: Get the notes
         $notesQuery = Auth::user()->notes();
 
-        // tag logic (Fixed to work with JSON arrays)
+        // 1. Filter by tag if not 'all'
         if ($this->selectedTag != 'all') {
-            // Use whereJsonContains for proper JSON array searching
-            $notesQuery = $notesQuery->where('tags', $this->selectedTag);
+            $notesQuery = $notesQuery->where('tags', 'all', [$this->selectedTag]);
+            // 'all' checks if array contains the selected tag
         }
 
+        // 2. Apply search filter
+        if (!empty(trim($this->search))) {
+            $q = trim($this->search);
+
+            $notesQuery = $notesQuery->where(function ($query) use ($q) {
+                $query->where('name', 'like', "%{$q}%")
+                    ->orWhere('note', 'like', "%{$q}%")
+                    ->orWhere('tags', 'all', [$q]);
+                // Correct way to search tag arrays in MongoDB
+            });
+        }
+
+        // 3. Get latest notes
         $notes = $notesQuery->latest()->get();
 
-        // Step 2: Get all the tags from all notes and flatten the array
+        // 4. Collect all tags for the sidebar
         $allTags = Auth::user()
             ->notes()
             ->get()
@@ -57,12 +71,13 @@ class Index extends Component
             ->flatten()
             ->unique()
             ->values()
-            ->filter(); // Remove null/empty values
+            ->filter();
 
         return view('livewire.note.index', [
             'notes' => $notes,
             'tags' => $allTags,
-            'selectedTag' => $this->selectedTag
+            'selectedTag' => $this->selectedTag,
+            'search' => $this->search
         ]);
     }
 }

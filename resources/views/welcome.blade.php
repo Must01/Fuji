@@ -125,15 +125,34 @@
                             <div class="mb-4 inline-flex items-center justify-center rounded-full bg-amber-300/25 p-3">
                                 <flux:icon name="swatch" variant="solid" class="h-6 w-6 text-amber-400" />
                             </div>
-                            <h3 class="mb-2 text-xl font-medium text-white/95">Rich color themes</h3>
-                            <p class="leading-relaxed text-white/70">Pick from <span class="text-amber-200">18</span>
-                                curated themes to match your mood.</p>
+                            <h3 class="mb-2 text-xl font-medium text-white/95">Custom color themes</h3>
+                            <p class="leading-relaxed text-white/70">Choose from <span class="text-amber-200">7</span>
+                                preset themes or create your own with the color picker.</p>
                             <div class="mt-4 flex gap-2">
                                 <span class="h-4 w-4 rounded-full bg-rose-400/80"></span>
                                 <span class="h-4 w-4 rounded-full bg-emerald-400/80"></span>
                                 <span class="h-4 w-4 rounded-full bg-blue-400/80"></span>
                                 <span class="h-4 w-4 rounded-full bg-amber-400/80"></span>
                                 <span class="h-4 w-4 rounded-full bg-purple-400/80"></span>
+                                <span
+                                    class="relative h-4 w-4 rounded-full bg-gradient-to-br from-pink-400 to-indigo-500"></span>
+                                <span class="flex items-center text-xs text-white/50">+∞</span>
+                            </div>
+                        </div>
+
+                        {{-- Rich text editor (document-text) --}}
+                        <div
+                            class="bg-white/8 hover:bg-white/12 group rounded-2xl border border-white/10 p-8 shadow-lg backdrop-blur-md transition-all duration-500 hover:border-white/20">
+                            <div class="mb-4 inline-flex items-center justify-center rounded-full bg-indigo-300/25 p-3">
+                                <flux:icon name="document-text" variant="solid" class="h-6 w-6 text-indigo-400" />
+                            </div>
+                            <h3 class="mb-2 text-xl font-medium text-white/95">Rich text formatting</h3>
+                            <p class="leading-relaxed text-white/70">Full HTML support with easy <strong>bold</strong>,
+                                <em>italic</em>, and formatting buttons.</p>
+                            <div class="mt-3 flex gap-1 text-xs">
+                                <span class="rounded bg-white/10 px-2 py-1 text-white/60">B</span>
+                                <span class="rounded bg-white/10 px-2 py-1 italic text-white/60">I</span>
+                                <span class="rounded bg-white/10 px-2 py-1 text-white/60 underline">U</span>
                             </div>
                         </div>
 
@@ -178,14 +197,16 @@
                                 <flux:icon name="lock-closed" variant="solid" class="h-6 w-6 text-cyan-300" />
                             </div>
                             <h3 class="mb-2 text-xl font-medium text-white/95">User authentication</h3>
-                            <p class="leading-relaxed text-white/70">Private by default. Secure sign-in and note privacy
+                            <p class="leading-relaxed text-white/70">Private by default. Secure sign-in and note
+                                privacy
                                 controls.</p>
                         </div>
 
                         {{-- Real-time updates (bolt) --}}
                         <div
                             class="bg-white/8 hover:bg-white/12 group rounded-2xl border border-white/10 p-8 shadow-lg backdrop-blur-md transition-all duration-500 hover:border-white/20">
-                            <div class="mb-4 inline-flex items-center justify-center rounded-full bg-violet-300/20 p-3">
+                            <div
+                                class="mb-4 inline-flex items-center justify-center rounded-full bg-violet-300/20 p-3">
                                 <flux:icon name="bolt" variant="solid" class="h-6 w-6 text-violet-300" />
                             </div>
                             <h3 class="mb-2 text-xl font-medium text-white/95">Real-time updates</h3>
