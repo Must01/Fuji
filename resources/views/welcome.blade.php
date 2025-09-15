@@ -27,7 +27,13 @@
                         <a href="{{ route('home') }}"
                             class="flex items-center gap-3 transition-all duration-300 hover:opacity-80" wire:navigate
                             aria-label="Home">
-                            <x-app-logo class="drop-shadow-sm" />
+                            <div
+                                class="text-accent-foreground flex aspect-square size-8 items-center justify-center rounded-md">
+                                <x-app-logo-icon class="size-5 fill-current text-white dark:text-black" />
+                            </div>
+                            <div class="ms-1 grid flex-1 text-start text-sm">
+                                <span class="mb-0.5 truncate font-semibold leading-tight text-white">Fuji</span>
+                            </div>
                         </a>
 
                         <div class="flex items-center gap-4">
@@ -148,7 +154,8 @@
                             </div>
                             <h3 class="mb-2 text-xl font-medium text-white/95">Rich text formatting</h3>
                             <p class="leading-relaxed text-white/70">Full HTML support with easy <strong>bold</strong>,
-                                <em>italic</em>, and formatting buttons.</p>
+                                <em>italic</em>, and formatting buttons.
+                            </p>
                             <div class="mt-3 flex gap-1 text-xs">
                                 <span class="rounded bg-white/10 px-2 py-1 text-white/60">B</span>
                                 <span class="rounded bg-white/10 px-2 py-1 italic text-white/60">I</span>
@@ -183,7 +190,8 @@
                         <div
                             class="bg-white/8 hover:bg-white/12 group rounded-2xl border border-white/10 p-8 shadow-lg backdrop-blur-md transition-all duration-500 hover:border-white/20">
                             <div class="mb-4 inline-flex items-center justify-center rounded-full bg-blue-300/20 p-3">
-                                <flux:icon name="device-phone-mobile" variant="solid" class="h-6 w-6 text-blue-300" />
+                                <flux:icon name="device-phone-mobile" variant="solid"
+                                    class="h-6 w-6 text-blue-300" />
                             </div>
                             <h3 class="mb-2 text-xl font-medium text-white/95">Responsive design</h3>
                             <p class="leading-relaxed text-white/70">Smooth on desktop and mobile — no pinching or
@@ -249,7 +257,13 @@
                     <div class="grid grid-cols-1 gap-8 text-center md:grid-cols-3 md:text-left">
                         <div class="md:col-span-2">
                             <div class="mb-4 flex items-center justify-center gap-3 md:justify-start">
-                                <x-app-logo class="drop-shadow-sm" />
+                                <div
+                                    class="text-accent-foreground flex aspect-square size-8 items-center justify-center rounded-md">
+                                    <x-app-logo-icon class="size-5 fill-current text-white dark:text-black" />
+                                </div>
+                                <div class="ms-1 grid flex-1 text-start text-sm">
+                                    <span class="mb-0.5 truncate font-semibold leading-tight text-white">Fuji</span>
+                                </div>
                             </div>
                             <p class="mx-auto mb-4 max-w-md leading-relaxed text-white/60 md:mx-0">
                                 A modern, mindful note-taking application built with Laravel, Livewire, and TailwindCSS.

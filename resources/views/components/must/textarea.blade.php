@@ -41,7 +41,7 @@
         </div>
 
         {{-- The textarea element remains the same, with the x-ref directive. --}}
-        <textarea x-ref="textarea" placeholder="{{ $placeholder }}" {{ $attributes }}
+        <textarea rows="8" x-ref="textarea" placeholder="{{ $placeholder }}" {{ $attributes }}
             class="focus:border-accent dark:focus:border-accent-content shadow-xs {{ $errors->has($name) ? 'outline-1 outline-red-400 dark:outline-red-500' : 'border-transparent' }} w-full rounded-lg border bg-white/75 px-2 py-2 text-base text-gray-900 outline-0"></textarea>
         <div class="{{ $text }} font-semibol flex justify-end text-xs">
             <p>content can be filled with pure html</p>
