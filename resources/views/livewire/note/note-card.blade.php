@@ -27,7 +27,7 @@
 
     {{-- body --}}
     <div class="mt-2 flex flex-1 items-center justify-center break-words text-left text-base leading-relaxed">
-        <p class="{{ $textClass }} line-clamp-4">{!! str($note->note)->words(2) !!}</p>
+        <p class="{{ $textClass }} line-clamp-4">{{ str($note->note)->words(2) }}</p>
     </div>
 
     {{--  time + actions --}}
