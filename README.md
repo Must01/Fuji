@@ -41,9 +41,9 @@
 
 This repository is **open source** under the MIT license and serves as a portfolio/demo project.  
 
-👉 If you’d like to **run Fuji locally with step-by-step installation guides, demo data, and deployment instructions**, check out the **Fuji Starter Kit** on Gumroad:
+👉 If you’d like to **run Fuji locally or deploye it online (Laravel Cloud or Forge) with step-by-step installation guides, and deployment instructions**, check out the **Fuji Starter Kit** on Gumroad:
 
-➡️ [Get the Fuji Starter Kit](https://gumroad.com)  
+➡️ [Get the Fuji Starter Kit]([https://gumroad.com](https://mustaphabouddahr0.gumroad.com/l/fuji))  
 
 ---
 
